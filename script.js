@@ -7,12 +7,12 @@ const loader = document.getElementById('loader')
 
 
 // show loading
-function loading() {
+function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
 
-function complete() {
+function removeLoadingSpinner() {
   if (!loader.hidden) {
     quoteContainer.hidden = false;
     loader.hidden = true;
@@ -21,7 +21,7 @@ function complete() {
 
 // Get Quote From API
 async function getQuote() {
-  loading();
+  showLoadingSpinner()
 
   const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
   const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=ru&format=json';
@@ -43,9 +43,13 @@ async function getQuote() {
     // console.log(data);
     // authorText.innerText = data.quoteAuthor;
     quoteText.innerText = data.quoteText;
-    complete();
+
+    removeLoadingSpinner();
+    // throw new Error('oops')
   } catch (error) {
+    // console.log(error)
     console.log(`error in code ${error}`)
+    getQuote();
   }
 }
 
@@ -60,4 +64,4 @@ newQuoteBtn.addEventListener('click', getQuote);
 twitterBtn.addEventListener('click', tweetQuote)
 
 getQuote()
-// loading();
+
