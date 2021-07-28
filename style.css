@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-
-
 html {
   box-sizing: border-box;
 }
@@ -81,14 +79,7 @@ color:#38a1f3;
 .fa-twitter{
 font-size:1.5rem;
 }
-@media screen and (max-width:1000px){
-.quote-container{
-margin:auto 10px;
-}
-.quote-text{
-    font-size:2.5rem;
-}
-}
+
 
 .loader{
 border:16px solid #f3f3f3;
@@ -102,4 +93,13 @@ animation:spin 2s linear infinity;
 @keyframes spin{
 0% {transform:rotate(0deg)}
 100% {transform:rotate(360deg)}
+}
+
+@media screen and (max-width:1000px){
+.quote-container{
+margin:auto 10px;
+}
+.quote-text{
+    font-size:2.5rem;
+}
 }
